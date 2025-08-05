@@ -13,7 +13,14 @@ export default defineConfig({
       provider: "v8",
       reporter: ["lcov", "text", "html"],
       reportsDirectory: "coverage",
-      exclude: ["node_modules/", "src/test/setup.ts"],
+      include: ["src/**/*"],
+      exclude: [
+        "node_modules/",
+        "src/test/setup.ts",
+        "**/*.test.{ts,tsx}",
+        "**/*.spec.{ts,tsx}",
+        "src/vite-env.d.ts",
+      ],
     },
   },
 });
