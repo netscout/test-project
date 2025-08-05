@@ -25,6 +25,11 @@ jobs:
       - name: Run Tests with Coverage
         run: npm run test:coverage
 
+      - name: List coverage files
+        run: |
+          echo "Working dir: $PWD"
+          find . -type f -maxdepth 2 | grep lcov.info
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
