@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 import "./Welcome.css";
 
 interface WelcomeProps {
@@ -56,12 +57,22 @@ const Welcome: React.FC<WelcomeProps> = ({
 
         {showGetStarted && (
           <div className="actions-section">
-            <button className="btn btn-primary" onClick={handleGetStarted}>
+            <Button
+              variant="primary"
+              size="large"
+              onClick={handleGetStarted}
+              leftIcon="🚀"
+            >
               Get Started
-            </button>
-            <button className="btn btn-secondary" onClick={handleLearnMore}>
+            </Button>
+            <Button
+              variant="outline"
+              size="large"
+              onClick={handleLearnMore}
+              leftIcon="📚"
+            >
               Learn More
-            </button>
+            </Button>
           </div>
         )}
       </div>
