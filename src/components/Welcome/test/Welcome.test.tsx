@@ -69,10 +69,10 @@ describe("Welcome Component", () => {
       ).toHaveClass("welcome-subtitle");
 
       const getStartedBtn = screen.getByRole("button", { name: "Get Started" });
-      expect(getStartedBtn).toHaveClass("btn", "btn-primary");
+      expect(getStartedBtn).toHaveClass("btn", "btn--primary", "btn--large");
 
       const learnMoreBtn = screen.getByRole("button", { name: "Learn More" });
-      expect(learnMoreBtn).toHaveClass("btn", "btn-secondary");
+      expect(learnMoreBtn).toHaveClass("btn", "btn--outline", "btn--large");
     });
   });
 
@@ -192,10 +192,13 @@ describe("Welcome Component", () => {
       render(<Welcome />);
 
       const featureCards = screen
-        .getAllByText(/🚀|⚡|🎨/)
+        .getAllByText(/⚡|🎨/)
         .map((emoji) => emoji.closest(".feature-card"));
 
-      expect(featureCards).toHaveLength(3);
+      expect(featureCards).toHaveLength(2);
+
+      // Also check for the fast development card separately since 🚀 is now used in buttons too
+      expect(screen.getByText("Fast Development")).toBeInTheDocument();
       featureCards.forEach((card) => {
         expect(card).toBeInTheDocument();
       });
