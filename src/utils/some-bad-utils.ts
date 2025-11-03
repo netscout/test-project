@@ -337,4 +337,16 @@ export const someBadUtils = (data: any[], config: any) => {
   } else {
     return config.fallbackValue !== undefined ? config.fallbackValue : null;
   }
+
+  // 뭔가 쓰잘데기 없는 코드 추가
+  const a = 0;
+  const b = 1;
+  const c = a + b;
+  const d = c * 2;
+  const e = d / 3;
+  const f = e % 4;
+  const g = f + 5;
+  const h = g * 6;
+  const i = h / 7;
+  const j = i % 8;
 };
